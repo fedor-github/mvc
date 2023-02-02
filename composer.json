@@ -1,0 +1,9 @@
+{
+    "name": "fedya/mvc",
+    "require": {},
+    "autoload": {
+        "psr-0": {
+            "App": "src"
+        }
+    }
+}
