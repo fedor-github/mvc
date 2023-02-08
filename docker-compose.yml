@@ -1,0 +1,11 @@
+services:
+  php:
+    image: mvc-php
+    build:
+      context: ./
+      dockerfile: config/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html/
+      - ./config/local.conf:/etc/apache2/sites-available/000-default.conf
