@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
-use PDO;
+use App\Model\Posts\Service;
 
 class PostController
 {
     public static function listPosts()
     {
-        $res = $GLOBALS['db']
-            ->query('SELECT * FROM posts', PDO::FETCH_ASSOC)
-            ->fetchAll();
+        $postSrv = new Service();
+        $posts = $postSrv->selectAll();
 
-        echo '<h2>Hello!</h2>';
-        echo '<pre>';
-        print_r($res);
-        echo '</pre>';
+        echo '<h1>POSTS</h1>';
+        foreach ($posts as $id => $post) {
+            echo "<p><b>$id</b>: " . $post->getTitle() . '</p>';
+            echo '<p><i>' . $post->getContent() . '</i></p>';
+        }
     }
 }
