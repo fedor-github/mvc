@@ -22,11 +22,8 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
         header('HTTP/1.0 404 Not Found');
         break;
-    case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-        $allowedMethods = $routeInfo[1];
-        // ... 405 Method Not Allowed
-        break;
     case FastRoute\Dispatcher::FOUND:
+        require_once __DIR__ . '/../app/bootstrap.php';
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         call_user_func($handler);

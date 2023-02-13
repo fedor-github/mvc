@@ -1,6 +1,7 @@
 {
     "name": "fedya/mvc",
     "require": {
+        "ext-pdo": "*",
         "nikic/fast-route": "^1.3",
         "twig/twig": "^3.0"
     },
