@@ -24,8 +24,9 @@ switch ($routeInfo[0]) {
         break;
     case FastRoute\Dispatcher::FOUND:
         require_once __DIR__ . '/../app/bootstrap.php';
-        $handler = $routeInfo[1];
+        $class = $routeInfo[1];
+        $action = new $class();
         $vars = $routeInfo[2];
-        call_user_func($handler);
+        call_user_func($action, $vars);
         break;
 }

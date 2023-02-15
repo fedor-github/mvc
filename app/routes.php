@@ -1,7 +1,7 @@
 <?php
 
-use App\Controller\PostController;
+use App\Controller\Post\ListAllAction;
 
 return function (FastRoute\RouteCollector $r) {
-    $r->get('/posts', [PostController::class, 'listPosts']);
+    $r->get('/posts', ListAllAction::class);
 };
