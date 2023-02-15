@@ -23,7 +23,7 @@ abstract class Action
         }
     }
 
-    protected function render(string $tpl, array $data): void
+    protected function render(string $tpl, array $data = []): void
     {
         $loader = new FilesystemLoader(__DIR__ . '/../View');
         $twig = new Environment($loader, [
