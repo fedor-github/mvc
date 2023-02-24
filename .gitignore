@@ -13,3 +13,7 @@
 .env
 
 /var/db/
+
+/node_modules/
+
+/dist/main.js*

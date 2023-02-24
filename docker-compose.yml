@@ -12,6 +12,14 @@ services:
       - ./:/var/www/html/
       - ./config/local.conf:/etc/apache2/sites-available/000-default.conf
 
+  node:
+    image: node:18.14.2-alpine3.17
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    command: "yarn watch"
+
   db:
     image: mysql:8.0.32-debian
     environment:
