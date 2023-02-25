@@ -8,6 +8,10 @@ services:
       dockerfile: config/Dockerfile
     ports:
       - "80:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - ./.env
     volumes:
       - ./:/var/www/html/
       - ./config/local.conf:/etc/apache2/sites-available/000-default.conf
